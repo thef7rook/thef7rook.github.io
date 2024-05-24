@@ -3,7 +3,13 @@
 		<!--Popover screen to prompt user for combat log-->
 		<div popover id="uploadLog">
 			<input type="file" name="Log" accept=".log">
-			<button type="submit" popovertarget="uploadLog" popovertargetaction="hide">Upload</button>
+			<script>
+				function passFile(){
+					console.log("Passing file to archiver");
+					
+				}
+			</script>
+			<button onclick="passFile()" popovertarget="uploadLog" popovertargetaction="hide">Upload</button>
 		</div>
 		<!-- Title of the Webpage -->
 		<title> Smite Stats </title> 
