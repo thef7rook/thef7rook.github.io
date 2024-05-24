@@ -2,13 +2,14 @@
 	<html>
 		<!--Popover screen to prompt user for combat log-->
 		<div popover id="uploadLog">
-			<input type="file" name="Log">
-			<button>Upload</button>
+			<input type="file" name="Log" accept=".log">
+			<button popovertarget="uploadLog" popovertargetaction="hide">Upload</button>
 		</div>
 		<!-- Title of the Webpage -->
 		<title> Smite Stats </title> 
- 
-		<table>
+
+		<!--table displaying stats-->
+		<table border="1">
 			<tr>
 				<td>TheF7Rook</td>
 				<td>Spartakusbund</td>
