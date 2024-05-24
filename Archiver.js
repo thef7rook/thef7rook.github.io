@@ -8,5 +8,6 @@ function Archiver(){
 function getArchiver(){
   if(archiver === null)
     archiver = new Archiver();
+  console.log("Retrieved Archiver Successfully!");
   return archiver;
 }
