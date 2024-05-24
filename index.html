@@ -5,10 +5,8 @@
 		<div popover id="uploadLog">
 			<input type="file" name="Log" accept=".log">
 			<script src="./Archiver.js">
-				getArchiver();
 				function passFile(){
-					console.log("Passing file to archiver");
-					
+					getArchiver().parseData(Log);				
 				}
 			</script>
 			<button onclick="passFile()" popovertarget="uploadLog" popovertargetaction="hide">Upload</button>

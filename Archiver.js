@@ -2,12 +2,16 @@
 archiver;
 const USERS_TO_TRACK = [Spartakusbund, TheF7Rook, JayTDemi, PineappleXXXL, SkyrorYaotzun, mamamarie21]
 function Archiver(){
-  peopleBeingTracked = [];  
+	this.peopleBeingTracked = [];  
+
+  	function parseData(combatLog){
+		console.log(combatLog);
+ 	}	 
 }
 
 function getArchiver(){
-  if(archiver === null)
-    archiver = new Archiver();
-  console.log("Retrieved Archiver Successfully!");
-  return archiver;
+	if(archiver === null)
+    	archiver = new Archiver();
+  	console.log("Retrieved Archiver Successfully!");
+	return archiver;
 }
