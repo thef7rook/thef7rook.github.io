@@ -3,7 +3,9 @@
 	<body>
 		<!--Instantiate a Client TCP Connection-->
 		<script>
-			const net = require('net');
+			import net from "net";
+
+			const client = new net.Socket();
 		</script>
 		<!--Popover screen to prompt user for combat log-->
 		<div popover id="uploadLog">
