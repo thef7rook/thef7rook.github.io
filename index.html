@@ -3,9 +3,14 @@
 	<body>
 		<!--Instantiate a Client TCP Connection-->
 		<script type="module">
-			import net from "net";
-
-			const client = new net.Socket();
+		document.addEventListener('keydown', function(event) {
+   		 	if(event.keyCode == 37) {
+       		 	alert('Left was pressed');
+    			}
+  			else if(event.keyCode == 39) {
+        		alert('Right was pressed');
+ 			}
+		});
 		</script>
 		<!--Popover screen to prompt user for combat log-->
 		<div popover id="uploadLog">
