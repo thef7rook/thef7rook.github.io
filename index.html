@@ -10,7 +10,7 @@
 		const SHOT  = "-->";
 		//End Constants 
 
-		var curPosition = [0, 2];
+		var curPosition = [2, 1];
 		var username = prompt("Enter 3 Letter Username");
 		username = username.substr(0, 3);
 		function drawBoard(){
@@ -25,9 +25,9 @@
 					let cell = document.createElement("td");
 					let cellData;
 					if(i === curPosition[0] && j === curPosition[1])
-						cellData = document.createTextNode(" " + username + " ");
+						cellData = document.createTextNode("_" + username + "_");
 					else
-						cellData = document.createTextNode("     ");
+						cellData = document.createTextNode("_____");
 					cell.appendChild(cellData);
 					row.appendChild(cell);
 				}
