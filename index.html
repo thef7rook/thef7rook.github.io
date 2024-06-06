@@ -11,16 +11,16 @@
 		const SHOT  = "-->";
 		//End Constants 
 		document.body.style.backgroundColor = BACKGROUND_COLOR
-		var board = document.createElement("table");
+		var board = document.createElement("table");			
+		board.setAttribute("border", 1);
+		board.setAttribute("cellPadding", 5);
+		board.setAttribute("table-layout", "fixed");
 		var curPosition = [2, 1];
 		var focusPosition = [2, 1];
 		var username = prompt("Enter 3 Letter Username");
 		username = username.substr(0, 3);
 		function drawBoard(){
-			board = document.createElement("table");				
-			board.setAttribute("border", 1);
-			board.setAttribute("cellPadding", 5);
-			board.setAttribute("table-layout", "fixed");
+			tbl.removeChild(tbl.getElementsByTagName("tbody")[0]);
 			let body = document.createElement("tbody");
 			for(let i = 0; i < BOARD_HEIGHT; i++){
 				let row = document.createElement("tr");
@@ -44,6 +44,7 @@
 		}
 		
 		function resetCurser(){
+			board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
 			focusPosition = [curPosition[0], curPosition[1]];
 			board.rows[curPosition[0]].cells[curPosition[1]].style.backgroundColor = PLAYER1_COLOR;
 			
