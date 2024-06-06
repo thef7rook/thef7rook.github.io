@@ -53,7 +53,7 @@
 		resetCurser();
 		//TODO: Create waiting on Lobby screen, not needed for testing
 		document.addEventListener('keydown', function(event) {
-   		 	if(event.keyCode == 87) {
+   		 	if(event.keyCode == 87 && focusPosition[0] - 1 !== -1) {
 				//Revert starting position to white
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
 				//Change focusPosition
@@ -62,7 +62,7 @@
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
        		 	//'W was pressed'
     			}
-  			else if(event.keyCode == 65) {
+  			else if(event.keyCode == 65 && focusPosition[1] - 1 !== -1) {
         			//Revert starting position to white
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
 				//Change focusPosition
@@ -71,7 +71,7 @@
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
 			//'A was pressed'
  			}
-			else if(event.keyCode == 68) {
+			else if(event.keyCode == 68 && focusPosition[1] + 1 < BOARD_WIDTH) {
         			//Revert starting position to white
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
 				//Change focusPosition
@@ -80,7 +80,7 @@
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
 			//'D was pressed'
  			}
-			else if(event.keyCode == 83) {
+			else if(event.keyCode == 83 && focusPosition[0] + 1 < BOARD_HEIGHT) {
         		//Revert starting position to white
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
 				//Change focusPosition
