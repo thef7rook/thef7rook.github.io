@@ -14,8 +14,8 @@
 		var username = prompt("Enter 3 Letter Username");
 		username = username.substr(0, 3);
 		function drawBoard(){
-			board = document.createElement("table");	
-			body = document.createElement("tbody");
+			let board = document.createElement("table");	
+			let body = document.createElement("tbody");
 			for(let i = 0; i < BOARD_HEIGHT; i++){
 				let row = document.createElement("tr");
 				for(let j = 0; j < BOARD_WIDTH; j++){
