@@ -2,14 +2,14 @@
 	<html>
 	<body>
 		<script type="module" >
-		document.body.style.backgroundColor = "DimGray";
 		//Constants Definition
-		const BOARD_HEIGHT = 5;
-		const BOARD_WIDTH  = 10;
-		const PLAYER1_COLOR= "MediumSlateBlue";
-		
+		const BOARD_HEIGHT     = 5;
+		const BOARD_WIDTH      = 10;
+		const PLAYER1_COLOR    = "MediumSlateBlue";
+		const BACKGROUND_COLOR = "DimGray"
 		const SHOT  = "-->";
 		//End Constants 
+		document.body.style.backgroundColor = BACKGROUND_COLOR
 		var board = document.createElement("table");
 		var curPosition = [2, 1];
 		var focusPosition = [2, 1];
@@ -54,7 +54,7 @@
 		document.addEventListener('keydown', function(event) {
    		 	if(event.keyCode == 87) {
 				//Revert starting position to white
-				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = "White";
+				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
 				//Change focusPosition
 				focusPosition = [focusPosition[0] - 1, focusPosition[1]];
 				//Change color of new Cell
@@ -63,7 +63,7 @@
     			}
   			else if(event.keyCode == 65) {
         			//Revert starting position to white
-				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = "White";
+				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
 				//Change focusPosition
 				focusPosition = [focusPosition[0], focusPosition[1] - 1];
 				//Change color of new Cell
@@ -72,7 +72,7 @@
  			}
 			else if(event.keyCode == 68) {
         			//Revert starting position to white
-				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = "White";
+				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
 				//Change focusPosition
 				focusPosition = [focusPosition[0], focusPosition[1] + 1];
 				//Change color of new Cell
@@ -81,13 +81,18 @@
  			}
 			else if(event.keyCode == 83) {
         		//Revert starting position to white
-				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = "White";
+				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
 				//Change focusPosition
 				focusPosition = [focusPosition[0] + 1, focusPosition[1]];
 				//Change color of new Cell
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
 			//'S was pressed'
  			}
+			else if(event.keyCode == 32 || event.keyCode == 13){
+				resetCurser();
+				drawBoard();
+			//Space or Enter was pressed.	
+			}
 			
 		});
 		</script>
