@@ -2,14 +2,59 @@
 	<html>
 		<title>Untitled Duel Game!</title>
 	<body>
-		<script type="module" >
+
+
+
+<script type="module">
+
+  // Import the functions you need from the SDKs you need
+
+ // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+ // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+
+  // Your web app's Firebase configuration
+
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+//  const firebaseConfig = {
+
+  //  apiKey: "AIzaSyDEJRX6iBwNnjWWO9phdPNk-4VVVr_3jaU",
+
+   // authDomain: "untitled-duel-game.firebaseapp.com",
+
+    //projectId: "untitled-duel-game",
+
+   // storageBucket: "untitled-duel-game.appspot.com",
+
+   // messagingSenderId: "54061047163",
+
+   // appId: "1:54061047163:web:1fcc01e2434b91c7e3b1de",
+
+  //  measurementId: "G-9JFDXFT5N9"
+
+//};
+
+
+  // Initialize Firebase
+
+  //const app = initializeApp(firebaseConfig);
+
+  //const analytics = getAnalytics(app);
+			
+		//firebase.auth().signInAnonymously();	
 		//Constants Definition
 		const BOARD_HEIGHT     = 5;
 		const BOARD_WIDTH      = 10;
 		const PLAYER1_COLOR    = "mediumslateblue";
 		const BACKGROUND_COLOR = "dimgray"
 		const TARGETABLE       = "darkred"
-		const SHOT  = "-->";
+		const SHOT  = "---";
 		//End Constants 
 		document.body.style.backgroundColor = BACKGROUND_COLOR
 		var board = document.createElement("table");			
