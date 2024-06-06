@@ -89,6 +89,11 @@
 			for(let shot of shotsFired){
 				shot[0][0] = shot[0][0] + shot[1][0];
 				shot[0][1] = shot[0][1] + shot[1][1];
+				if(shot[0][0] < 0 || shot[0][0] > BOARD_HEIGHT || shot[0][1] < 0 || shot[0][1] > BOARD_WIDTH){
+					let index  = shotsFired.indexOf(shot);
+					let trash = shotsFired.splice(index, 1);
+				}
+					
 			}
 		}
 		//End of Functions
