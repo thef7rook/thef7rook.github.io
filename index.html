@@ -2,13 +2,23 @@
 	<html>
 	<body>
 		
-		<script type="module">
+		<script type="module" >
+		//Constants Definition
 		const BOARD_HEIGHT = 5;
-		const BOARD_WIDTH  = 5;
-		const board = document.createElement("table");			
+		const BOARD_WIDTH  = 10;
+			
+		const SHOT  = "-->";
 		
+		
+		//End Constants 
+		alert(prompt("Enter 3 Letter Username"));
 		function drawBoard(){
-			return;
+			board = document.createElement("table");		
+			
+			
+			document.body.appendChild(board);
+			
+			
 			
 		}
 		document.addEventListener('keydown', function(event) {
