@@ -51,6 +51,11 @@
 			board.rows[curPosition[0]].cells[curPosition[1]].style.backgroundColor = PLAYER1_COLOR;
 			
 		}
+
+		function movePlayer(position){
+			curPosition[0] = position[0];
+			curPosition[1] = position[1];
+		}
 		//End of Functions
 		drawBoard();
 		resetCurser();
@@ -93,7 +98,7 @@
 			//'S was pressed'
  			}
 			else if(event.keyCode == 32 || event.keyCode == 13){
-				
+				movePlayer(focusPosition);
 				drawBoard();
 				resetCurser();
 			//Space or Enter was pressed.	
