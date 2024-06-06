@@ -8,6 +8,7 @@
 		const BOARD_WIDTH      = 10;
 		const PLAYER1_COLOR    = "MediumSlateBlue";
 		const BACKGROUND_COLOR = "DimGray"
+		const TARGETABLE       = "DarkRed"
 		const SHOT  = "-->";
 		//End Constants 
 		document.body.style.backgroundColor = BACKGROUND_COLOR
@@ -33,6 +34,9 @@
 						cellData = document.createTextNode("_" + username + "_");
 					else
 						cellData = document.createTextNode("_____");
+
+					if(i === curPosition[0] - 1 || i === curPosition[0] + 1 || i === curPosition[1] - 1 || i === curPosition[1] + 1)
+						cell.style.backgroundColor = TARGETABLE;
 					cell.appendChild(cellData);
 					row.appendChild(cell);
 				}
