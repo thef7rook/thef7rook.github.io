@@ -57,7 +57,7 @@
 		}
 		
 		function resetCurser(){
-			board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
+			board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = previousColor;
 			focusPosition = [curPosition[0], curPosition[1]];
 			board.rows[curPosition[0]].cells[curPosition[1]].style.backgroundColor = PLAYER1_COLOR;
 			
@@ -120,9 +120,9 @@
 				if(previousColor === TARGETABLE){
 					movePlayer(focusPosition);
 					drawBoard();
-					resetCurser();
 				}
-			//Space or Enter was pressed.	
+			resetCurser();
+			//Space or Enter ;was pressed.	
 			}
 			
 		});
