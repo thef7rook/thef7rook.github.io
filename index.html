@@ -112,6 +112,7 @@
 			//'S was pressed'
  			}
 			else if(event.keyCode == 32 || event.keyCode == 13){
+				console.log(previousColor);
 				if(previousColor === TARGETABLE){
 					movePlayer(focusPosition);
 					drawBoard();
