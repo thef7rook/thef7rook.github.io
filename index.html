@@ -9,12 +9,12 @@
 			
 		const SHOT  = "-->";
 		//End Constants 
-
+		var board = document.createElement("table");
 		var curPosition = [2, 1];
 		var username = prompt("Enter 3 Letter Username");
 		username = username.substr(0, 3);
 		function drawBoard(){
-			let board = document.createElement("table");				
+			board = document.createElement("table");				
 			board.setAttribute("border", 1);
 			board.setAttribute("cellPadding", 5);
 			board.setAttribute("table-layout", "fixed");
@@ -40,6 +40,11 @@
 			
 		}
 		drawBoard();
+		function resetCurser(){
+			board.row[curPosition[0]].cells[curPosition[1]].style.backgroundColor = "blue";
+			
+		}
+			
 		//TODO: Create waiting on Lobby screen, not needed for testing
 		document.addEventListener('keydown', function(event) {
    		 	if(event.keyCode == 87) {
