@@ -22,6 +22,9 @@
 		username = username.substr(0, 3);
 		var justStarted = true;
 		var previousColor = BACKGROUND_COLOR;
+		//The format of a shot is shot [current position][vector]		
+		var shotsFired = [];
+		var amntOfShots = 0;
 		function drawBoard(){
 			if(!justStarted)
 				board.removeChild(board.getElementsByTagName("tbody")[0]);
@@ -36,8 +39,13 @@
 						cellData = document.createTextNode("_" + username + "_");
 						cell.style.backgroundColor = BACKGROUND_COLOR;
 					}
+						
 					else
 						cellData = document.createTextNode("_____");
+					for(let shot of shotsFired){
+						if(i == shot[0][0] && j == shot[0][1])
+							cellData = document.createTextNode("_" + SHOT + "_");
+					}
 					cell.style.backgroundColor = BACKGROUND_COLOR;
 					if((i === curPosition[0] - 1 && j === curPosition[1]) || (i === curPosition[0] - 1 && j === curPosition[1] - 1) ||
 					   (i === curPosition[0] + 1 && j === curPosition[1]) || (i === curPosition[0] - 1 && j === curPosition[1] + 1) ||
@@ -66,6 +74,22 @@
 		function movePlayer(position){
 			curPosition[0] = position[0];
 			curPosition[1] = position[1];
+			updateShots();
+			amntOfShots = 0;
+		}
+
+		function addNewShot(shotArray){
+			
+			board.rows[shotArray[0][0]].cells[shotArray[0][1]].innerHTML = "_" + SHOT + "_";
+			shotsFired.push(shotArray);
+			amntOfShots++;
+		}
+
+		function updateShots(){
+			for(let shot of shotsFired){
+				shot[0][0] = shot[0][0] + shot[1][0];
+				shot[0][1] = shot[0][1] + shot[1][1];
+			}
 		}
 		//End of Functions
 		drawBoard();
@@ -115,11 +139,14 @@
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
 			//'S was pressed'
  			}
-			else if(event.keyCode == 32 || event.keyCode == 13){
-				console.log(previousColor);
+			else if(event.keyCode == 32 || event.keyCode == 13 || event.keyCode == 88){
 				if(previousColor === TARGETABLE){
-					movePlayer(focusPosition);
-					drawBoard();
+					if(event.keyCode == 88 && amntOfShots == 0)
+						addNewShot([focusPosition, [focusPosition[0] - curPosition[0], focusPosition[1] - curPosition[1]]]);
+					else{
+						movePlayer(focusPosition);
+						drawBoard();
+					}
 				}
 			resetCurser();
 			//Space or Enter ;was pressed.	
