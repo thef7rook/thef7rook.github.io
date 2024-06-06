@@ -28,6 +28,7 @@
 			for(let i = 0; i < BOARD_HEIGHT; i++){
 				let row = document.createElement("tr");
 				for(let j = 0; j < BOARD_WIDTH; j++){
+				
 					let cell = document.createElement("td");
 					let cellData;
 					if(i === curPosition[0] && j === curPosition[1])
@@ -35,7 +36,10 @@
 					else
 						cellData = document.createTextNode("_____");
 
-					if(i === curPosition[0] - 1 || i === curPosition[0] + 1 || i === curPosition[1] - 1 || i === curPosition[1] + 1)
+					if((i === curPosition[0] - 1 && j === curPosition[1]) || (i === curPosition[0] - 1 && j === curPosition[1] - 1) ||
+					   (i === curPosition[0] + 1 && j === curPosition[1]) || (i === curPosition[0] - 1 && j === curPosition[1] + 1) ||
+					   (i === curPosition[0] + 1 && j === curPosition[1] - 1) || (i === curPosition[0] + 1 && j === curPosition[1] + 1) ||
+					   (i === curPosition[0] && j === curPosition[1] - 1) || (i === curPosition[0] && j === curPosition[1] + 1))
 						cell.style.backgroundColor = TARGETABLE;
 					cell.appendChild(cellData);
 					row.appendChild(cell);
@@ -102,9 +106,11 @@
 			//'S was pressed'
  			}
 			else if(event.keyCode == 32 || event.keyCode == 13){
-				movePlayer(focusPosition);
-				drawBoard();
-				resetCurser();
+				if(board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor === TARGETABLE){
+					movePlayer(focusPosition);
+					drawBoard();
+					resetCurser();
+				}
 			//Space or Enter was pressed.	
 			}
 			
