@@ -77,7 +77,7 @@
 				//Change focusPosition
 				focusPosition = [focusPosition[0] - 1, focusPosition[1]];
 				//Change color of new Cell
-
+				previousColor = board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor;
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
        		 	//'W was pressed'
     			}
