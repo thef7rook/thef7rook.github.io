@@ -11,7 +11,9 @@
 		
 		
 		//End Constants 
-		username = prompt("Enter 3 Letter Username");
+		var username = prompt("Enter 3 Letter Username");
+		username = username.substr(0, 2);
+		alert(username);
 		function drawBoard(){
 			board = document.createElement("table");		
 			
