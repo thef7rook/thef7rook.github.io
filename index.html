@@ -3,6 +3,13 @@
 	<body>
 		<!--Instantiate a Client TCP Connection-->
 		<script type="module">
+		const BOARD_HEIGHT = 5;
+		const BOARD_WIDTH  = 5;
+		const board = document.createElement("table");			
+		
+		function drawBoard(){
+			
+		}
 		document.addEventListener('keydown', function(event) {
    		 	if(event.keyCode == 87) {
 			
@@ -19,28 +26,5 @@
  			}
 		});
 		</script>
-		<!--Popover screen to prompt user for combat log-->
-		<div popover id="uploadLog">
-			<input type="file" id="Log" accept=".log">
-			<script id="acceptData" src="./Archiver.js">
-				getArchiver().parseData(document.getElementById(Log));				
-			</script>
-			<button onclick="acceptData" popovertarget="uploadLog" popovertargetaction="hide">Upload</button>
-		</div>
-		<!-- Title of the Webpage -->
-		<title> Smite Stats </title> 
-
-		<!--table displaying stats-->
-		<table border="1">
-			<tr>
-				<td>TheF7Rook</td>
-				<td>Spartakusbund</td>
-			</tr>
-			<tr>
-				<td>Filler</td>
-				<td>Filler 2</td>
-			</tr>
-		</table>
-		<button popovertarget="uploadLog">Upload Combat Log</button>
-	</body>
+		
 	</html>
