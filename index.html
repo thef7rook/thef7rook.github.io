@@ -32,8 +32,10 @@
 				
 					let cell = document.createElement("td");
 					let cellData;
-					if(i === curPosition[0] && j === curPosition[1])
+					if(i === curPosition[0] && j === curPosition[1]){
 						cellData = document.createTextNode("_" + username + "_");
+						cell.style.backgroundColor = BACKGROUND_COLOR;
+					}
 					else
 						cellData = document.createTextNode("_____");
 					cell.style.backgroundColor = BACKGROUND_COLOR;
