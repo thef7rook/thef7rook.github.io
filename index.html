@@ -20,7 +20,7 @@
 		var username = prompt("Enter 3 Letter Username");
 		username = username.substr(0, 3);
 		function drawBoard(){
-			board.removeChild(tbl.getElementsByTagName("tbody")[0]);
+			board.removeChild(board.getElementsByTagName("tbody")[0]);
 			let body = document.createElement("tbody");
 			for(let i = 0; i < BOARD_HEIGHT; i++){
 				let row = document.createElement("tr");
