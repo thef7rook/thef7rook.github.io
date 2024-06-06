@@ -36,7 +36,7 @@
 						cellData = document.createTextNode("_" + username + "_");
 					else
 						cellData = document.createTextNode("_____");
-
+					cell.style.backgroundColor = BACKGROUND_COLOR;
 					if((i === curPosition[0] - 1 && j === curPosition[1]) || (i === curPosition[0] - 1 && j === curPosition[1] - 1) ||
 					   (i === curPosition[0] + 1 && j === curPosition[1]) || (i === curPosition[0] - 1 && j === curPosition[1] + 1) ||
 					   (i === curPosition[0] + 1 && j === curPosition[1] - 1) || (i === curPosition[0] + 1 && j === curPosition[1] + 1) ||
@@ -70,13 +70,14 @@
 		resetCurser();
 		//TODO: Create waiting on Lobby screen, not needed for testing
 		document.addEventListener('keydown', function(event) {
+			
    		 	if(event.keyCode == 87 && focusPosition[0] - 1 !== -1) {
 				//Revert starting position to color that it was
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = previousColor;
 				//Change focusPosition
 				focusPosition = [focusPosition[0] - 1, focusPosition[1]];
 				//Change color of new Cell
-				previousColor = board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor;
+
 				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
        		 	//'W was pressed'
     			}
@@ -102,7 +103,7 @@
  			}
 			else if(event.keyCode == 83 && focusPosition[0] + 1 < BOARD_HEIGHT) {
         		//Revert starting position to white
-				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = BACKGROUND_COLOR;
+				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = previousColor;
 				//Change focusPosition
 				focusPosition = [focusPosition[0] + 1, focusPosition[1]];
 				//Change color of new Cell
