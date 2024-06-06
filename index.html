@@ -21,7 +21,7 @@
 				for(let j = 0; j < BOARD_WIDTH; j++){
 					let cell = document.createElement("td");
 					let cellData;
-					if(i !== curPosition[0], j !== curPosition[1])
+					if(i === curPosition[0], j === curPosition[1])
 						cellData = document.createTextNode(" " + username + " ");
 					else
 						cellData = document.createTextNode("     ");
@@ -33,7 +33,8 @@
 			board.appendChild(body);
 			document.body.appendChild(board);
 			board.setAttribute("border", 1);
-			
+			board.setAttribute("cellPadding", 5);
+			board.setAttribute("table-layout", "fixed");
 			
 			
 		}
