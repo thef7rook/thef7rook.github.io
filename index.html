@@ -8,21 +8,37 @@
 		const BOARD_WIDTH  = 10;
 			
 		const SHOT  = "-->";
-		
-		
 		//End Constants 
+
+		var curPositon[0, 2];
 		var username = prompt("Enter 3 Letter Username");
-		username = username.substr(0, 2);
-		alert(username);
+		username = username.substr(0, 3);
 		function drawBoard(){
-			board = document.createElement("table");		
-			
-			
+			board = document.createElement("table");	
+			body = document.createElement("tbody");
+			for(let i = 0; i < BOARD_HEIGHT; i++){
+				let row = document.createElement("tr");
+				for(let j = 0; j < BOARD_WIDTH; j++){
+					let cell = document.createElement("td");
+					let cellData;
+					if(i !== curPosition[0], j !== curPosition[1])
+						cellData = document.createTextNode(" " + username + " ");
+					else
+						cellData = document.createTextNode("     ");
+					cell.appendChild(cellText);
+					row.appendChild(cell);
+				}
+				body.appendChild(row);
+			}
+			board.appendChild(body);
 			document.body.appendChild(board);
+			board.setAttribute("border", 1);
 			
 			
 			
 		}
+		
+		//TODO: Create waiting on Lobby screen, not needed for testing
 		document.addEventListener('keydown', function(event) {
    		 	if(event.keyCode == 87) {
 			
