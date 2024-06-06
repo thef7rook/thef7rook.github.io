@@ -11,6 +11,7 @@
 		//End Constants 
 		var board = document.createElement("table");
 		var curPosition = [2, 1];
+		var focusPosition = [2, 1];
 		var username = prompt("Enter 3 Letter Username");
 		username = username.substr(0, 3);
 		function drawBoard(){
@@ -41,7 +42,8 @@
 		}
 		
 		function resetCurser(){
-			board.rows[curPosition[0]].cells[curPosition[1]].style.backgroundColor = PLAYER1_COLOR;
+			focusPosition = [curPosition[0], curPosition[1]];
+0			board.rows[curPosition[0]].cells[curPosition[1]].style.backgroundColor = PLAYER1_COLOR;
 			
 		}
 		//End of Functions
@@ -50,24 +52,42 @@
 		//TODO: Create waiting on Lobby screen, not needed for testing
 		document.addEventListener('keydown', function(event) {
    		 	if(event.keyCode == 87) {
-				board.rows[curPosition[0]].cells[curPosition[1]].style.backgroundColor = "White";
-				while(event.keyCode == 87){
-					board.rows[curPosition[0] - 1].cells[curPosition[1]].style.backgroundColor = PLAYER1_COLOR;
-					console.Log("w");
-				}
-				board.rows[curPosition[0] - 1].cells[curPosition[1]].style.backgroundColor = "White";
+				//Revert starting position to white
+				board.rows[focusPosition[0]].cells[focusPositon[1]].style.backgroundColor = "White";
+				//Change focusPosition
+				focusPosition = [focusPosition[0] - 1, focusPosition[1]];
+				//Change color of new Cell
+				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
        		 	//'W was pressed'
     			}
   			else if(event.keyCode == 65) {
-        		alert('A was pressed');
+        			//Revert starting position to white
+				board.rows[focusPosition[0]].cells[focusPositon[1]].style.backgroundColor = "White";
+				//Change focusPosition
+				focusPosition = [focusPosition[0], focusPosition[1] - 1];
+				//Change color of new Cell
+				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
+			//'A was pressed'
  			}
 			else if(event.keyCode == 68) {
-        		alert('D was pressed');
+        			//Revert starting position to white
+				board.rows[focusPosition[0]].cells[focusPositon[1]].style.backgroundColor = "White";
+				//Change focusPosition
+				focusPosition = [focusPosition[0], focusPosition[1] + 1];
+				//Change color of new Cell
+				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
+			//'D was pressed'
  			}
 			else if(event.keyCode == 83) {
-        		alert('S was pressed');
+        		//Revert starting position to white
+				board.rows[focusPosition[0]].cells[focusPositon[1]].style.backgroundColor = "White";
+				//Change focusPosition
+				focusPosition = [focusPosition[0] + 1, focusPosition[1]];
+				//Change color of new Cell
+				board.rows[focusPosition[0]].cells[focusPosition[1]].style.backgroundColor = PLAYER1_COLOR;
+			//'S was pressed'
  			}
-			resetCursor();
+			
 		});
 		</script>
 		
